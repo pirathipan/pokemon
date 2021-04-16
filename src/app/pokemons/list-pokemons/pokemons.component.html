@@ -1,0 +1,27 @@
+<h1 class="center">Liste de Pokémons</h1>
+
+<div class="col s12 center">
+    <button type="button" class="btn btn-large waves-effect waves-light blue" (click)="addPokemon()">
+        Ajouter un pokemon
+    </button>
+</div>
+
+<div class="container">
+  <app-search-pokemon></app-search-pokemon>
+  <div class="row">
+    <div *ngFor="let pokemon of pokemons" class="col s6 m4">
+      <div class="card horizontal" appBorderCard (click)="selectedPokemon(pokemon)">
+        <div class="card-image">
+          <img [src]="pokemon.picture">
+        </div>
+        <div class="card-stacked">
+          <div class="card-content">
+            <p>{{ pokemon.name }}</p>
+            <p><small>{{ pokemon.created | date: "dd/MM/yy"}}</small></p>
+            <span *ngFor ="let type of pokemon.types" class="{{ type | pokemonTypeColor }}">{{ type }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="form-group">
+
+    <input type="text" [(ngModel)]="filterBy" placeholder="filterBy" (keyup)="filter()">
+
+    <ul class="collection with-header" *ngIf="isHere">
+      <li class="collection-header" *ngFor="let pkm of pokemonsData"  (click)="selectedPokemon(pkm)" >
+            {{ pkm.name }}
+      </li>
+    </ul>
+
+</div>
